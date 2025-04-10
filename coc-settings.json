@@ -1,0 +1,17 @@
+{
+  "suggest.noselect": true,
+  "tsserver.enable": true,
+  "eslint.enable": true,
+  "eslint.autoFixOnSave": true,
+  "prettier.enable": true,
+  "prettier.requireConfig": false,
+  "diagnostic.displayByAle": false,
+  "coc.preferences.formatOnSave": true,
+  "snippets.ultisnips.enable": true,
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "snippets.ultisnips.pythonPrompt": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
