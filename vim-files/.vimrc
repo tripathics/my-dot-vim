@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'NLKNguyen/papercolor-theme'
+	Plug 'mbbill/undotree'
 call plug#end()
 
 " ==================> Set keybindings
@@ -54,6 +55,9 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist'
 
 " Bufexplorer
 noremap <leader>o :BufExplorer<cr>
+
+" Undotree
+noremap <leader>u :UndotreeToggle<cr>
 
 " Airline theme
 let g:airline_powerline_fonts = 1
