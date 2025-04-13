@@ -1,28 +1,27 @@
 " ==> Plugins
-" TODO: Ensure vim plug is there
-
 call plug#begin('~/.vim/plugged')
-	Plug 'ctrlpvim/ctrlp.vim'
-	Plug 'preservim/nerdtree'
-	Plug 'jlanzarotta/bufexplorer'
-	Plug 'tpope/vim-fugitive'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
-	Plug 'NLKNguyen/papercolor-theme'
-	Plug 'mbbill/undotree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'preservim/nerdtree'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'tpope/vim-fugitive'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'mbbill/undotree'
 call plug#end()
 
 " ==================> Set keybindings
 let mapleader = "\<space>"
 
-" Use <-> to open the current file directory
-" nnoremap - :Ex <c-r>=expand('%:h')<cr><cr>
-
-noremap <c-j> <c-w>j	" Movement between windows
+" Movement between windows
+noremap <c-j> <c-w>j
 noremap <c-k> <c-w>k
 noremap <c-l> <c-w>l
 noremap <c-h> <c-w>h
+
+" System paste toggle
+noremap <leader>pp :set paste!<cr>
 
 " ==> Looks
 
@@ -33,7 +32,7 @@ syntax on " Colors
 set hlsearch
 
 set wildmenu	" Wildmenu
-set wildmode=list:longest,full
+set wildmode=full
 set wildoptions=pum
 
 " Use 2 space tabs
@@ -44,6 +43,13 @@ set noexpandtab
 " colorscheme
 set background=dark
 colorscheme PaperColor
+
+" cursor
+if has('termguicolors')
+  let &t_SI = "\e[6 q"  " Insert: beam
+  let &t_SR = "\e[4 q"  " Replace: underline
+  let &t_EI = "\e[2 q"  " Normal: block
+endif
 
 " ==> Plugin customizations
 
@@ -61,6 +67,7 @@ noremap <leader>u :UndotreeToggle<cr>
 
 " Airline theme
 let g:airline_powerline_fonts = 1
+autocmd VimEnter * :AirlineTheme minimalist
 
 " coc
 set encoding=utf-8
@@ -74,9 +81,9 @@ function! CheckBackspace() abort
 endfunction
 
 inoremap <silent><expr> <Tab>
-  \ coc#pum#visible() ? coc#pum#next(1) :
-  \ CheckBackspace() ? "\<Tab>" :
-  \ coc#refresh()
+    \ coc#pum#visible() ? coc#pum#next(1) :
+    \ CheckBackspace() ? "\<Tab>" :
+    \ coc#refresh()
 
 " use <c-space> for trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
