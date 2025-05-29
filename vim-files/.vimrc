@@ -9,6 +9,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'mbbill/undotree'
+Plug 'EdenEast/nightfox.nvim'
 call plug#end()
 
 " ==================> Set keybindings
@@ -34,6 +35,7 @@ set hlsearch
 set wildmenu	" Wildmenu
 set wildmode=full
 set wildoptions=pum
+set noshowmode	" mode already visible in airline
 
 " Use 2 space tabs
 set tabstop=2
